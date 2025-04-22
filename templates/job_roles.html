@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Roles | SkillTrak</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='job_roles.css') }}">
+    <script defer src="{{ url_for('static', filename='main.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='job_roles.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% if user %}
+        <div id="user-data" data-username="{{ user.name }}" data-jobrole="{{ user.role }}" style="display: none;"></div>
+    {% endif %}
+    <header>
+        <div class="logo">SkillTrak</div>    
+        <nav class="nav-links">
+            <a href="/" {% if current_page == 'home' %}class="active"{% endif %}>Home</a>
+            <a href="/job-roles" {% if current_page == 'job-roles' %}class="active"{% endif %}>Job Roles</a>
+            <a href="/resume-toolkit" {% if current_page == 'resume-toolkit' %}class="active"{% endif %}>Resume Toolkit</a>
+            <a href="/about" {% if current_page == 'about' %}class="active"{% endif %}>About Us</a>
+            {% if user %}
+                <a href="/my-learning" {% if current_page == 'my-learning' %}class="active"{% endif %}>My Learning</a>
+            {% endif %}
+            <div class="nav-buttons" id="login-signup" style="display: {% if user %}none{% else %}flex{% endif %}">
+                <button class="btn login">Log In</button>
+                <button class="btn signup">Sign Up</button>
+            </div>
+            <div class="nav-buttons" id="profile-logout" style="display: {% if user %}flex{% else %}none{% endif %}">
+                <span id="navbar-user"></span>
+                <a href="{{ url_for('profile') }}" class="btn profile-btn">
+                    <img src="{{ url_for('static', filename='images/' + (user.profile_picture|default('default_profile.png'))) }}" 
+                         alt="Profile" style="width: 30px; height: 30px; border-radius: 50%; vertical-align: middle;">
+                    <span class="profile-icon">👤</span>
+                </a>
+                <a href="{{ url_for('logout') }}" class="btn logout-btn">Log Out</a>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="theme-icon">☀️</span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="job-roles-section">
+            <h1>Explore Job Roles</h1>
+            <input type="text" id="search-bar" placeholder="Search categories or job roles...">
+            <div class="categories">
+                {% for category in categories %}
+                    <button class="category-btn" data-category-id="{{ category.category_id }}">{{ category.category_name }}</button>
+                {% endfor %}
+            </div>
+            <div class="job-roles" id="job-roles-list">
+                {% for job in job_roles %}
+                    <div class="job-role" data-role-id="{{ job.role_id }}" data-category-id="{{ job.category_id }}">
+                        {{ job.role_title }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="job-details" id="job-details">
+                <!-- Job details will be populated via JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section footer-brand">
+                <h3>SkillTrak</h3>
+                <p>Unlock your dream career with expert guidance and resources.</p>
+            </div>
+            <div class="footer-section footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/job-roles">Job Roles</a></li>
+                    <li><a href="/resume-toolkit">Resume Toolkit</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:support@skilltrak.com">support@skilltrak.com</a></p>
+                <p><a href="/contact">Contact Us</a></p>
+            </div>
+            <div class="footer-section footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <a href="/privacy-policy">Privacy Policy</a> | 
+                <a href="/terms-of-service">Terms of Service</a>
+            </div>
+            <p>© 2025 SkillTrak | Designed for Your Success</p>
+        </div>
+    </footer>
+</body>
+</html>

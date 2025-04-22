@@ -1,0 +1,759 @@
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    background: var(--background);
+}
+
+/* 🌟 Enlarged & Styled Container */
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+    max-width: 1200px;
+    width: 90%;
+    animation: glow 2s infinite alternate;
+}
+
+/* ✨ Glow Animation */
+@keyframes glow {
+    from {
+        box-shadow: 0px 5px 20px rgba(255, 183, 77, 0.3);
+    }
+    to {
+        box-shadow: 0px 5px 25px rgba(255, 183, 77, 0.6);
+    }
+}
+
+/* 📝 Hero Content */
+.hero-content {
+    max-width: 50%;
+    color: var(--text);
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 25px;
+}
+
+/* 📊 Stats Section */
+.stats {
+    display: flex;
+    gap: 40px;
+}
+
+.stat {
+    text-align: center;
+}
+
+/* 🔢 Animated Counter */
+.counter {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--highlight);
+    transition: 0.5s ease-in-out;
+}
+
+/* ⭐ Rating Section */
+.rating {
+    position: relative;
+}
+
+/* 🌟 Profile Images in Horizontal Stack */
+.user-profiles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+/* 📷 Profile Images - Overlapping Effect */
+.user-profiles img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid var(--text);
+    object-fit: cover;
+    position: relative;
+}
+
+/* ➕ "+more" Text - No Background */
+.more-users {
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--text);
+    background: none !important;
+    padding: 0;
+    margin-left: 5px;
+}
+
+/* 🎯 Fix "4.8/5 Average Rating" in Same Line */
+.rating-score {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--highlight);
+}
+
+.rating-text {
+    font-size: 1.2em;
+    color: var(--text);
+    font-weight: normal;
+}
+
+/* 📷 Enlarged Image */
+.hero-image img {
+    width: 450px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 🌟 Hero Container - Dynamic Colors for Light & Dark Mode */
+.hero-container {
+    transition: background 0.3s ease-in-out;
+}
+
+/* 🌑 Dark Theme */
+.dark-theme .hero-container {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+/* ☀️ Light Theme */
+.light-theme .hero-container {
+    background: linear-gradient(135deg, #F9FCFD, #DDECF1);
+    border: 1px solid #C2D5DA;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+section {
+    margin: 20px;
+}
+
+/* Stylish Heading */
+.jobrole-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, var(--highlight), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: headingFadeIn 1s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes headingFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.jobrole-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    justify-content: center;
+}
+
+.jobrole-list {
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Minimal Design for Job Role Buttons */
+.jobrole-btn {
+    padding: 10px 20px;
+    border: 1px solid var(--secondary);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    flex: 0 0 calc(20% - 10px);
+    text-align: center;
+    white-space: normal;
+    min-width: 120px;
+    max-width: 150px;
+    overflow-wrap: break-word;
+}
+
+.jobrole-btn:hover {
+    background: var(--secondary);
+    color: var(--background);
+    border-color: var(--highlight);
+}
+
+.jobrole-btn.active {
+    background: var(--highlight);
+    color: var(--primary);
+    border-color: var(--highlight);
+}
+
+/* Navigation Arrows */
+.scroll-btn {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--secondary);
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 16px;
+    transition: background 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background: var(--secondary);
+    color: var(--background);
+}
+
+.scroll-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+}
+
+/* Skills and Courses Section */
+#skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.skill-section {
+    background: linear-gradient(145deg, var(--primary), var(--secondary));
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Modern Aesthetic for Course Cards */
+.course-card {
+    background: var(--background);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    background: linear-gradient(145deg, var(--background), var(--primary));
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.course-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--highlight);
+    margin-bottom: 8px;
+}
+
+.course-cost {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 5px;
+    opacity: 0.9;
+}
+
+.course-description {
+    font-size: 13px;
+    color: var(--text);
+    opacity: 0.7;
+    line-height: 1.4;
+}
+
+/* Roadmap Section */
+.roadmap-section {
+    margin: 40px 0;
+    padding: 20px;
+}
+
+.roadmap-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 300px;
+}
+
+.roadmap-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.roadmap-line {
+    position: absolute;
+    top: 15px; /* Align with the center of the markers */
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--secondary);
+    z-index: 1;
+}
+
+.roadmap-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.step-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+.roadmap-marker {
+    width: 30px;
+    height: 30px;
+    background: var(--highlight);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+}
+
+.roadmap-marker::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 50px; /* Adjust based on distance to step box */
+    background: var(--highlight);
+    z-index: 1;
+}
+
+.roadmap-step {
+    background: var(--text); /* Use theme background as a fallback */
+    border-radius: 10px;
+    padding: 15px;
+    width: 180px;
+    min-height: 100px; /* Ensure uniform height */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    margin-top: 50px; /* Match the height of the connecting line */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.roadmap-step:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.step-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: var(--background);
+}
+
+.step-content p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--background);
+    opacity: 0.8;
+}
+
+/* Theme-specific styles for better visibility */
+.light-theme .roadmap-step {
+    background: #ffffff; /* White background in light theme */
+    border: 1px solid #e0e0e0; /* Subtle border for light theme */
+}
+
+.dark-theme .roadmap-step {
+    background: #ffffff; /* White background in dark theme */
+    border: 1px solid #e0e0e0; /* Subtle border for dark theme */
+}
+
+.light-theme .step-content h3,
+.light-theme .step-content p {
+    color: #333333; /* Dark text in light theme */
+}
+
+.dark-theme .step-content h3,
+.dark-theme .step-content p {
+    color: #333333; /* Dark text in dark theme to contrast with white background */
+}
+
+.dark-theme .step-content p {
+    opacity: 0.7; /* Slightly lower opacity for description in dark theme */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .roadmap-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step-unit {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .roadmap-step {
+        width: 80%;
+        margin-top: 30px;
+    }
+
+    .roadmap-marker::after {
+        height: 30px; /* Shorter connecting line for smaller screens */
+    }
+
+    .roadmap-line {
+        display: none; /* Hide the horizontal line on small screens */
+    }
+}
+/* Hero Section Heading */
+.hero-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, var(--highlight), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: headingFadeIn 1s ease-in-out;
+}
+/* Search Section */
+.search-section {
+    margin: 40px 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.search-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#jobrole-search {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 1px solid var(--secondary);
+    border-radius: 25px;
+    background: var(--background);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#jobrole-search::placeholder {
+    color: var(--text);
+    opacity: 0.5;
+}
+
+#jobrole-search:focus {
+    border-color: var(--highlight);
+    box-shadow: 0 0 8px rgba(255, 183, 77, 0.3);
+}
+
+/* Theme-specific styles for search bar */
+.light-theme #jobrole-search {
+    background: #ffffff;
+    border-color: #e0e0e0;
+}
+
+.dark-theme #jobrole-search {
+    background: #333333;
+    border-color: #777777;
+}
+/* Call-to-Action Section */
+.cta-section {
+    margin: 40px 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 1.2em;
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: var(--highlight);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #ffcc80; /* Lighter shade of highlight */
+    transform: scale(1.05);
+}
+/* Template Gallery */
+.template-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.template-card {
+    background: #ffffff; /* White background for consistency */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.template-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.template-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.template-info {
+    padding: 10px;
+}
+
+.template-info h5 {
+    margin: 0 0 10px 0;
+    font-size: 1.1em;
+    color: #333333;
+}
+
+.template-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.template-actions a {
+    color: var(--highlight);
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.template-actions a:hover {
+    text-decoration: underline;
+}
+/* Resume Tips Preview Section */
+.resume-tips-preview {
+    margin: 40px 0;
+    padding: 20px;
+}
+
+.tips-with-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.tip-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 600px;
+    background: #ffffff; /* White background for consistency */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tip-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tip-text {
+    flex: 1;
+}
+
+.tip-text h3 {
+    font-size: 1.3em;
+    color: var(--highlight);
+    margin-bottom: 10px;
+}
+
+.tip-text p {
+    font-size: 1em;
+    color: #333333; /* Dark text to contrast with white background */
+    margin: 0;
+}
+
+.tip-image img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .tip-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .tip-image img {
+        width: 120px;
+        height: 160px;
+    }
+}
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 10px; /* Reduced from 100px 20px */
+    background: var(--background);
+}
+
+/* Search Section for Job Roles */
+.search-section {
+    margin: 10px 0; /* Reduced from 40px 0 */
+    padding: 10px; /* Unchanged */
+    text-align: center;
+}
+
+/* Popular Recommendations Section */
+section {
+    margin: 5px; /* Reduced from 20px for sections like Popular Recommendations */
+}
+
+/* Roadmap Section */
+.roadmap-section {
+    margin: 10px 0; /* Reduced from 40px 0 */
+    padding: 10px; /* Unchanged */
+}
+
+/* Resume Tips Preview Section */
+.resume-tips-preview {
+    margin: 10px 0; /* Reduced from 40px 0 */
+    padding: 10px; /* Unchanged */
+}
+/* Roadmap Section */
+.roadmap-section {
+    margin: 5px 0; /* Reduced from 10px 0 to further decrease the gap */
+    padding: -10px;
+}
+
+/* Resume Tips Preview Section */
+.resume-tips-preview {
+    margin: 5px 0; /* Reduced from 10px 0 to further decrease the gap */
+    padding: -10px;
+}
+.tip-image img {
+    width: 100px; /* Adjust as needed */
+    height: 140px; /* Adjust as needed */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.template-card img {
+    width: 100%; /* Adjust as needed */
+    height: 250px; /* Adjust as needed */
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.tip-image img, .template-card img {
+    border: 1px solid red; /* Temporary for debugging */
+}
+.tip-image img {
+    width: 100px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: block; /* Ensure the image is not hidden */
+}
+
+.template-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: block; /* Ensure the image is not hidden */
+}
+
+/* Existing styles (unchanged) */
+.tip-image img {
+    width: 100px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.template-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: block;
+}
+

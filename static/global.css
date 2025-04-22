@@ -1,0 +1,314 @@
+/* Default Colors */
+/* Dark Theme */
+:root {
+    --primary: #1E1E2F;
+    --secondary: #4A4A72;
+    --background: #121212;
+    --text: #E0E0E0;
+    --highlight: #FFB74D;
+}
+
+/* Light Theme */
+.light-mode {
+    --primary: #e3eef1;
+    --secondary: #528296;
+    --background: #dfe9eb;
+    --text: #1A1A1A;
+    --highlight: #FF9F43;
+}
+
+/* General Styling */
+body {
+    font-family: "Baloo 2", sans-serif;
+    background: var(--background);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    transition: 0.3s;
+}
+
+/* Navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: var(--primary);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: top 0.3s ease-in-out;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--highlight);
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin: auto;
+}
+
+.nav-links a {
+    position: relative;
+    color: var(--text);
+    font-weight: 500;
+    text-decoration: none;
+    padding-bottom: 5px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: var(--secondary);
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-links a:hover {
+    color: var(--secondary);
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-left: 400px;
+}
+
+.btn {
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn.login {
+    background: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.btn.login:hover {
+    background: var(--secondary);
+    color: var(--text);
+}
+
+.btn.signup {
+    background: var(--secondary);
+    color: var(--text);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn.signup:hover {
+    background: var(--text);
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+}
+
+.theme-toggle {
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 15px;
+}
+
+#theme-icon {
+    font-size: 22px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Prevent horizontal scrolling */
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+/* Footer Styles */
+.footer {
+    background-color: #2c3e50; /* Dark blue-gray background */
+    color: #ecf0f1; /* Light text color */
+    padding: 40px 20px;
+    margin-top: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    margin-bottom: 20px;
+}
+
+.footer-brand h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #3498db; /* Accent color for the brand name */
+}
+
+.footer-brand p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ecf0f1;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a,
+.footer-contact p a {
+    color: #bdc3c7; /* Light gray for links */
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover,
+.footer-contact p a:hover {
+    color: #3498db; /* Accent color on hover */
+}
+
+.footer-social .social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social .social-links a {
+    color: #ecf0f1;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer-social .social-links a:hover {
+    color: #3498db; /* Accent color on hover */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+}
+
+.footer-legal {
+    margin-bottom: 10px;
+}
+
+.footer-legal a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: #3498db;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    margin: 0;
+    color: #bdc3c7;
+}
+/* static/global.css (add to existing file) */
+.profile-icon {
+    font-size: 20px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.btn.profile-btn {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+/* static/global.css (add or update) */
+header.hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: #1E1E2F;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.profile-icon {
+    font-size: 20px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.btn.profile-btn {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+#navbar-user {
+    color: #FFB74D;
+    margin-right: 10px;
+}

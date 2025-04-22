@@ -1,0 +1,75 @@
+**Entities & Attributes**
+
+1. **Users**
+   - `user_id` (PK)
+   - `name`
+   - `email` (Unique)
+   - `password`
+   - `phone_no`
+   - `qualification`
+   - `role` (Job Seeker / Fresher / Employee)
+
+2. **Categories**
+   - `category_id` (PK)
+   - `category_name`
+
+3. **Job Roles**
+   - `role_id` (PK)
+   - `role_title`
+   - `description`
+   - `industry`
+   - `salary_package`
+   - `category_id` (FK -> Categories)
+
+4. **Skills**
+   - `skill_id` (PK)
+   - `skill_name`
+   - `description`
+   - `job_id` (FK -> Job Roles)
+
+5. **Roadmaps**
+   - `roadmap_id` (PK)
+   - `role_id` (FK -> Job Roles)
+   - `step_number`
+   - `step_title`
+   - `step_description`
+
+6. **Quizzes**
+   - `quiz_id` (PK)
+   - `role_id` (FK -> Job Roles)
+   - `question`
+   - `option_a`
+   - `option_b`
+   - `option_c`
+   - `option_d`
+   - `correct_answer`
+
+7. **Courses**
+   - `course_id` (PK)
+   - `course_name`
+   - `description`
+   - `url`
+   - `duration`
+   - `cost`
+   - `linked_skill_id` (FK -> Skills)
+
+8. **Progress Tracking**
+   - `progress_id` (PK)
+   - `user_id` (FK -> Users)
+   - `role_id` (FK -> Job Roles)
+   - `milestone`
+   - `completion_date`
+   - `progress_percentage`
+
+9. **Resume Templates**
+   - `template_id` (PK)
+   - `template_name`
+   - `format`
+   - `file_link`
+
+#### **Relationships & Key Points**
+- Each **User** can follow multiple **Job Roles**.
+- Each **Job Role** can have multiple **Skills**, **Roadmaps**, and **Quizzes**.
+- The **Progress Tracking** table enables milestone tracking.
+- The **Courses** table connects skills with relevant learning resources.
+- Each **Job Role** now belongs to a specific **Category** for improved UI navigation.

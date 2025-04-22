@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learning | SkillTrak</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='my_learning.css') }}">
+    <script defer src="{{ url_for('static', filename='main.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% if user %}
+        <div id="user-data" data-username="{{ user.name }}" data-jobrole="{{ user.role }}" style="display: none;"></div>
+    {% endif %}
+    <header>
+        <div class="logo">SkillTrak</div>    
+        <nav class="nav-links">
+            <a href="/" {% if current_page == 'home' %}class="active"{% endif %}>Home</a>
+            <a href="/job-roles" {% if current_page == 'job-roles' %}class="active"{% endif %}>Job Roles</a>
+            <a href="/resume-toolkit" {% if current_page == 'resume-toolkit' %}class="active"{% endif %}>Resume Toolkit</a>
+            <a href="/about" {% if current_page == 'about' %}class="active"{% endif %}>About Us</a>
+            {% if user %}
+                <a href="/my-learning" {% if current_page == 'my-learning' %}class="active"{% endif %}>My Learning</a>
+            {% endif %}
+            <div class="nav-buttons" id="login-signup" style="display: {% if user %}none{% else %}flex{% endif %}">
+                <button class="btn login">Log In</button>
+                <button class="btn signup">Sign Up</button>
+            </div>
+            <div class="nav-buttons" id="profile-logout" style="display: {% if user %}flex{% else %}none{% endif %}">
+                <span id="navbar-user"></span>
+                <a href="{{ url_for('profile') }}" class="btn profile-btn">
+                    <img src="{{ url_for('static', filename='images/' + (user.profile_picture|default('default_profile.png'))) }}" 
+                         alt="Profile" style="width: 30px; height: 30px; border-radius: 50%; vertical-align: middle;">
+                    <span class="profile-icon">👤</span>
+                </a>
+                <a href="{{ url_for('logout') }}" class="btn logout-btn">Log Out</a>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="theme-icon">☀️</span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="my-learning-section">
+            <h1>My Learning</h1>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="learning-details">
+                <h2>{{ user.name }}'s Progress</h2>
+                <p><strong>User Role:</strong> {{ user.role }}</p>
+                {% if progress %}
+                    <h3>Learning Path: {{ progress[0].role_title }}</h3>
+                    <div class="progress-container">
+                        {% for step in progress %}
+                            <div class="progress-step">
+                                <span class="step-number">{{ step.step_number }}</span>
+                                <p>{{ step.milestone }}</p>
+                                <p><strong>Progress:</strong> {{ step.progress_percentage }}%</p>
+                                <p><strong>Completed:</strong> {{ 'Yes' if step.is_completed else 'No' }}</p>
+                                {% if step.completion_date %}
+                                    <p><strong>Completed On:</strong> {{ step.completion_date }}</p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% if quizzes %}
+                        <h3>Quizzes</h3>
+                        <div class="quiz-container">
+                            {% for quiz in quizzes %}
+                                <div class="quiz-item">
+                                    <p><strong>Step {{ quiz.step_number }}:</strong> {{ quiz.question }}</p>
+                                    <ul>
+                                        <li>A: {{ quiz.option_a }}</li>
+                                        <li>B: {{ quiz.option_b }}</li>
+                                        <li>C: {{ quiz.option_c }}</li>
+                                        <li>D: {{ quiz.option_d }}</li>
+                                    </ul>
+                                    <p><strong>Correct Answer:</strong> {{ quiz.correct_answer }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p>No quizzes available for this role.</p>
+                    {% endif %}
+                {% else %}
+                    <p>No progress tracked yet. Start your learning journey!</p>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SkillTrak</h3>
+                <p>Empowering your career journey.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="/">Home</a>
+                <a href="/job-roles">Job Roles</a>
+                <a href="/resume-toolkit">Resume Toolkit</a>
+                <a href="/about">About Us</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,129 @@
+:root {
+  --primary: #1E1E2F;
+  --secondary: #4A4A72;
+  --background: #121212;
+  --text: #E0E0E0;
+  --highlight: #FFB74D;
+}
+
+.light-mode {
+  --primary: #C5D4DA; /* Slightly darker for contrast */
+  --secondary: #528296;
+  --background: #EFF5F7; /* Softer for readability */
+  --text: #222222; /* Darker for better contrast */
+  --highlight: #FF7F27; /* Deeper orange for emphasis */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 40px;
+  line-height: 1.8;
+}
+
+h1{
+  height: 35px;
+  font-size: 40px;
+}
+h1, h2 {
+  color: var(--highlight);
+  text-align: center;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+ul li::marker {
+  color: var(--text);
+}
+
+blockquote {
+  border-left: 5px solid var(--text);
+  padding-left: 20px;
+  color: var(--text);
+  margin: 20px 0;
+  font-style: italic;
+}
+
+strong {
+  color: var(--text);
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.about-content {
+  background-color: var(--primary);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--highlight);
+  max-width: 800px;
+  
+}
+.testimonial {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.testimonial img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.testimonial:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+.light-mode blockquote {
+  border-left-color: var(--highlight);
+  color: var(--text);
+}
+
+.light-mode ul li::marker {
+  color: var(--highlight);
+}
+
+.light-mode a {
+  color: var(--secondary); /* Ensures links are readable */
+}
+
+.light-mode .about-content {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 15px var(--highlight);
+}
+/* Ensures better contrast for <p>, <li>, and <blockquote> */
+.light-mode p,
+.light-mode li,
+.light-mode blockquote {
+  color: var(--text);
+}
+
+.light-mode ul li::marker {
+  color: var(--highlight);
+}
+
+.light-mode blockquote {
+  border-left-color: var(--highlight);
+  font-style: italic;
+  background: rgba(255, 127, 39, 0.1); /* Light orange tint for visibility */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.light-mode a {
+  color: var(--secondary); /* Ensures links are readable */
+}
+
+.light-mode .about-content {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 15px var(--highlight);
+}
